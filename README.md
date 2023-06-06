@@ -3,7 +3,9 @@ This is a repository for generating and training short audio samples on less tha
 
 The purpose of this project is to provide access to audio diffusion code for those interested in exploration that have limited resources. Because of the limited sample size, drum samples are a natural fit for training and generating.
 
-The repository is built heavily adapting code from [Archinet's audio-diffusion-pytorch (v0.1.3)](https://github.com/archinetai/audio-diffusion-pytorch)
+The repository is built heavily adapting code from [Archinet's audio-diffusion-pytorch (v0.1.3)](https://github.com/archinetai/audio-diffusion-pytorch).
+
+***NOTE:*** *THIS IS A WORK IN PROGRESS AND MAY BREAK. FUTURE UPDATES WILL IMPROVE CLEANLINESS AND ROBUSTNESS OF CODE.*
 
 ## Setup
 
@@ -42,7 +44,12 @@ WANDB_API_KEY=a21dzbqlybbzccqla4txa21dzbqlybbzccqla4tx
 Open the `Inference.ipynb` in Jupyter Notebook to generate new drum samples.
 
 ## Train
-Run test experiment, see the [`exp`](exp/) folder for other experiments (create your own `.yaml` file there to run a custom experiment!)
+Run the following commands in terminal to train the model.
+
+`drum_diffusion.yaml` is contains the default model configuration. Additional custom model configurations can be added to the [`exp`](exp/) folder.
+
+Train model from scratch:
+
 ```bash
 python train.py exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/data>
 ```
@@ -53,8 +60,8 @@ Run on GPU(s)
 python train.py exp=drum_diffusion trainer.gpus=1 exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/data>
 ```
 
-Resume run from a checkpoint
+Resume run from a checkpoint (with GPU):
 
 ```bash
-python train.py exp=drum_diffusion +ckpt=</path/to/checkpoint.ckpt> exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/data>
+python train.py exp=drum_diffusion trainer.gpus=1 +ckpt=</path/to/checkpoint.ckpt> exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/data>
 ```
