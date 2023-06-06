@@ -46,7 +46,7 @@ Open the `Inference.ipynb` in Jupyter Notebook to generate new drum samples.
 ## Train
 Run the following commands in terminal to train the model.
 
-`drum_diffusion.yaml` is contains the default model configuration. Additional custom model configurations can be added to the [`exp`](exp/) folder.
+`exp/drum_diffusion.yaml` contains the default model configuration. Additional custom model configurations can be added to the [`exp`](exp/) folder.
 
 Train model from scratch:
 
