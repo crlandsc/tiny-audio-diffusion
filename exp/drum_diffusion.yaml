@@ -1,36 +1,33 @@
-# @package _global_
+# Unconditional Diffusion
 
-# Unconditional diffusion
-
-# To execute this experiment on a single GPU run:
-# python train.py exp=drum_diffusion trainer.gpus=1 datamodule.dataset.path=/your_wav_path_here
+# To execute this experiment on a single GPU, run:
+# python train.py exp=drum_diffusion trainer.gpus=1 exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/data>
 
 module: main.diffusion_module
 batch_size: 1 # mini-batch size (increase to speed up at the cost of memory)
-accumulate_grad_batches: 32 # use to increase batch size on single GPU effective batch size = (batch_size * accumulate_grad_batches)
+accumulate_grad_batches: 32 # use to increase batch size on single GPU -> effective batch size = (batch_size * accumulate_grad_batches)
 num_workers: 8 # num workers for data loading
 
-sampling_rate: 44100
-length: 32768
-channels: 2
-log_every_n_steps: 1000
+sampling_rate: 44100 # sampling rate (44.1kHz is the music industry standard)
+length: 32768 # Length of audio in samples (32768 samples @ 44.1kHz ~ 0.75 seconds)
+channels: 2 # stereo audio
+val_log_every_n_steps: 1000 # Logging interval (Validation and audio generation every n steps)
 # ckpt_every_n_steps: 4000 # Use if multiple checkpoints wanted
 
 model:
-  _target_: ${module}.Model
-  lr: 1e-4
-  lr_beta1: 0.95
-  lr_beta2: 0.999
-  lr_eps: 1e-6
-  lr_weight_decay: 1e-3
-  ema_beta: 0.995
-  ema_power: 0.7
+  _target_: ${module}.Model # pl model wrapper
+  lr: 1e-4 # optimizer learning rate
+  lr_beta1: 0.95 # beta1 param for Adam optimizer
+  lr_beta2: 0.999 # beta2 param for Adam optimzer
+  lr_eps: 1e-6 # epsilon for optimizer (to avoid div by 0)
+  lr_weight_decay: 1e-3 # weight decay regularization param
+  ema_beta: 0.995 # EMA model (exponential-moving-average) beta
+  ema_power: 0.7 # EMA model gradiaent norm param
 
   model:
-    _target_: audio_diffusion_pytorch.DiffusionModel
+    _target_: audio_diffusion_pytorch.DiffusionModel # Waveform diffusion model
     net_t:
       _target_: ${module}.UNetT # The model type used for diffusion (U-Net V0 in this case)
-      # dim: 1 # 1D Unet
     in_channels: 2 # U-Net: number of input/output (audio) channels
     channels: [32, 32, 64, 64, 128, 128, 256, 256] # U-Net: channels at each layer
     factors: [1, 2, 2, 2, 2, 2, 2, 2] # U-Net: downsampling and upsampling factors at each layer
@@ -62,8 +59,8 @@ datamodule:
 
 callbacks:
   rich_progress_bar:
-    # _target_: pytorch_lightning.callbacks.TQDMProgressBar # use if RichProgressBar creates issues
     _target_: pytorch_lightning.callbacks.RichProgressBar
+    # _target_: pytorch_lightning.callbacks.TQDMProgressBar # use if RichProgressBar creates issues
 
   model_checkpoint:
     _target_: pytorch_lightning.callbacks.ModelCheckpoint
@@ -82,9 +79,9 @@ callbacks:
 
   audio_samples_logger:
     _target_: main.diffusion_module.SampleLogger
-    num_items: 4 # number of samples to be generated
-    channels: ${channels}
-    sampling_rate: ${sampling_rate}
+    num_items: 4 # number of separate samples to be generated
+    channels: ${channels} # number of audio channels
+    sampling_rate: ${sampling_rate} # audio sampling rate
     length: ${length} # length of generated sample
     sampling_steps: [50] # number of steps per sample
     use_ema_model: True # Use EMA for logger inference
@@ -103,13 +100,13 @@ loggers:
 trainer:
   _target_: pytorch_lightning.Trainer
   gpus: 1 # Set `1` to train on GPU, `0` to train on CPU only, and `-1` to train on all GPUs, default `0`
-  precision: 16 # Precision used for tensors, default `32`, 16 for quicker runs on local machine
+  precision: 16 # Precision used for tensors (`32` offers higher precision, but `16` is used to save memory)
   accelerator: auto # default `None`
   min_epochs: 0 # minimum number of epochs
   max_epochs: -1 # max number of epochs (-1 = infinite run)
   enable_model_summary: False
-  log_every_n_steps: 1 # Logs metrics every N batches
+  log_every_n_steps: 1 # Logs training metrics every n steps
   # limit_val_batches: 10 # Use to limit the number of valid batches run (e.g. 10 stops training at 10 batches)
   check_val_every_n_epoch: null
-  val_check_interval: ${log_every_n_steps}
+  val_check_interval: ${val_log_every_n_steps} # Validation interval (check valid set and generate audio every n steps)
   accumulate_grad_batches: ${accumulate_grad_batches} # use to increase batch size on single GPU
