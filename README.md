@@ -27,7 +27,7 @@ The current configuration is set up to be able to train ~0.75 second samples at 
 
 Other methods of diffusion, such as diffusion in the latent space (Stable Diffusion's secret sauce), compared to this repo's raw waveform diffusion can offer an improvement and other tradeoffs between quality, memory requirements, speed, etc. I recommend this repo to remain up-to-date with the latest research in generative audio: https://github.com/archinetai/audio-ai-timeline
 
-Also recommended is [Harmonai's](https://www.harmonai.org/) community project, [Dance Diffusion](https://github.com/Harmonai-org/sample-generator), which implements similar functionality to this repo on a larger scale with several pre-trained models.
+Also recommended is [Harmonai's](https://www.harmonai.org/) community project, [Dance Diffusion](https://github.com/Harmonai-org/sample-generator), which implements similar functionality to this repo on a larger scale with several pre-trained models. [Colab notebook](https://colab.research.google.com/github/Harmonai-org/sample-generator/blob/main/Dance_Diffusion.ipynb) available.
 
 ---
 
@@ -44,7 +44,7 @@ conda env create -f environment.yml
 conda activate tiny-audio-diffusion
 ```
 
-This will create and activate a conda environment and install the dependencies in `utils/requirements.txt`.
+This will create and activate a conda environment and install the dependencies in [`utils/requirements.txt`](utils/requirements.txt).
 
 #### 2. Install Python Kernel For Jupyter Notebook
 Run the following line to create a kernel for the current environment to run the inference notebook.
@@ -68,7 +68,7 @@ WANDB_API_KEY=a21dzbqlybbzccqla4txa21dzbqlybbzccqla4tx # W&B API key
 
 *NOTE:* Sign up for a [Weights & Biases](https://wandb.ai/site) account to log audio samples, spectrograms, and other metrics while training.
 
-W&B logging example [here](https://wandb.ai/crlandsc/unconditional-drum-diffusion?workspace=user-crlandsc).
+W&B logging example for this repo [here](https://wandb.ai/crlandsc/unconditional-drum-diffusion?workspace=user-crlandsc).
 
 ---
 
@@ -89,6 +89,7 @@ Models can be downloaded to generate samples via the [inference notebook](Infere
 
 
 ## Inference
+#### (Sample Generation)
 Open the [`Inference.ipynb`](Inference.ipynb) in Jupyter Notebook and follow the instructions to generate new drum samples. Ensure that the `"tiny-audio-diffusion (Python 3.10)"` kernel is active in Jupyter to run the notebook.
 
 ---
