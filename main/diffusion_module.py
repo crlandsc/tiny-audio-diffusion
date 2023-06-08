@@ -1,44 +1,35 @@
+# This code has been adapted from Flavio Schneider's work with Archinet.
+# (https://github.com/archinetai/audio-diffusion-pytorch-trainer)
+
 from audio_data_pytorch.utils import fractional_random_split
-# from audio_diffusion_pytorch import AudioDiffusionModel, Sampler, Schedule
-# from main import DiffusionModel, Sampler, Schedule
 from pytorch_lightning.loggers import LoggerCollection, WandbLogger
+from audio_diffusion_pytorch import UNetV0, VDiffusion, VSampler, LTPlugin
 
 import random
-import warnings
-from copy import deepcopy
-from typing import Any, Callable, Dict, List, Optional, Sequence, Union, Type, Tuple 
-from math import pi 
+from typing import Any, List, Optional
 
-import json 
 import plotly.graph_objs as go
 import pytorch_lightning as pl
 import torch
 import torchaudio
 import wandb
-import torch.nn.functional as F 
-from einops import rearrange, repeat
+
+from einops import rearrange
 from ema_pytorch import EMA
 from pytorch_lightning import Callback, Trainer
-from pytorch_lightning.utilities import rank_zero_only
-from torch import Tensor, nn, optim
+from torch import Tensor, nn
 from torch.utils.data import DataLoader
-from tqdm import tqdm 
 
-# from archisound import ArchiSound
-# from transformers import AutoModel 
 
 """ Model """
 
-# torch.set_float32_matmul_precision('high')
-
-from audio_diffusion_pytorch import UNetV0, VDiffusion, VSampler, LTPlugin, Sampler, Schedule
-
-# Use learned transform to downsapmler (by stride length)
+# Option to use learned transform to downsample (by stride length) input data (not recommended).
+# Can reduce computational load, but introduces undesirable high freq artifacts.
 UNetT_LT = lambda: LTPlugin(UNetV0, num_filters=32, window_length=16, stride=16)
 
-UNetT = lambda: UNetV0
-DiffusionT = VDiffusion
-SamplerT = VSampler
+UNetT = lambda: UNetV0 # define Unet to be used (from audio_diffusion_pytorch)
+DiffusionT = VDiffusion # define diffusion method to be used (from audio_diffusion_pytorch)
+SamplerT = VSampler # define diffusion sampler to be used (from audio_diffusion_pytorch)
 
 def dropout(proba: float):
     return random.random() < proba
@@ -82,6 +73,7 @@ class Model(pl.LightningModule):
         wave = batch
         loss = self.model(wave)
         self.log("train_loss", loss, sync_dist=True)
+        
         # Update EMA model and log decay
         self.model_ema.update()
         self.log("ema_decay", self.model_ema.get_current_decay(), sync_dist=True)
@@ -95,7 +87,6 @@ class Model(pl.LightningModule):
 
 
 """ Datamodule """
-
 
 class Datamodule(pl.LightningDataModule):
     def __init__(
