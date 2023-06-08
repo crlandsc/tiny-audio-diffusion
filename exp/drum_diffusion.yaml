@@ -99,7 +99,7 @@ loggers:
 
 trainer:
   _target_: pytorch_lightning.Trainer
-  gpus: 1 # Set `1` to train on GPU, `0` to train on CPU only, and `-1` to train on all GPUs, default `0`
+  gpus: 0 # Set `1` to train on GPU, `0` to train on CPU only, and `-1` to train on all GPUs, default `0`
   precision: 16 # Precision used for tensors (`32` offers higher precision, but `16` is used to save memory)
   accelerator: auto # default `None`
   min_epochs: 0 # minimum number of epochs
