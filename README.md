@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="./images/CL Banner.png"/>
+    <img src="./images/CL Banner.png" style="padding-bottom: 20px;"/>
 </div>
 
 <p style="margin-top: 20px;">This is a repository for generating short audio samples and training waveform diffusion models on a GPU with less than 2GB VRAM.</p>
