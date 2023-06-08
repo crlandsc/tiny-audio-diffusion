@@ -1,18 +1,16 @@
 import os
-
 import dotenv
 import hydra
-import torch
 import pytorch_lightning as pl
 from main import utils
 from omegaconf import DictConfig, open_dict
+# import torch # use if direct checkpoint load required (see line 87)
+
 
 # Load environment variables from `.env`.
 dotenv.load_dotenv(override=True)
 log = utils.get_logger(__name__)
 
-from audio_diffusion_pytorch import DiffusionModel, UNetV0, VDiffusion, VSampler
-# from main import DiffusionModel, UNetV0, VDiffusion, VSampler, module_base
 
 @hydra.main(config_path=".", config_name="config.yaml", version_base=None)
 def main(config: DictConfig) -> None:
