@@ -48,6 +48,7 @@ conda activate tiny-audio-diffusion
 This will create and activate a conda environment and install the dependencies in [`utils/requirements.txt`](utils/requirements.txt).
 
 #### 2. Install Python Kernel For Jupyter Notebook
+
 Run the following line to create a kernel for the current environment to run the inference notebook.
 
 ```bash
@@ -55,6 +56,7 @@ python -m ipykernel install --user --name tiny-audio-diffusion --display-name "t
 ```
 
 #### 3. Define Environment Variables
+
 Rename `.env.tmp` to `.env` and replace the entries with your own variables (example values are random)
 
 ```bash
@@ -74,6 +76,7 @@ W&B logging example for this repo [here](https://wandb.ai/crlandsc/unconditional
 ---
 
 ## Pre-trained Models
+
 Pretrained models can be found on Hugging Face (each model contains a `.ckpt` and `.yaml` file):
 
 |Model|Link|
@@ -88,12 +91,13 @@ Models can be downloaded to generate samples via the [inference notebook](Infere
 ---
 
 ## Inference
-#### (Sample Generation)
-Open the [`Inference.ipynb`](Inference.ipynb) in Jupyter Notebook and follow the instructions to generate new drum samples. Ensure that the `"tiny-audio-diffusion (Python 3.10)"` kernel is active in Jupyter to run the notebook.
+
+Open the [`Inference.ipynb`](Inference.ipynb) in Jupyter Notebook and follow the instructions to generate new audio samples. Ensure that the `"tiny-audio-diffusion (Python 3.10)"` kernel is active in Jupyter to run the notebook.
 
 ---
 
 ## Train
+
 The model architecture has been constructed with [PyTorch Lightning](https://lightning.ai/docs/pytorch/latest/) and [Hydra](https://hydra.cc/docs/intro/) frameworks. All configurations for the model are contained within `.yaml` files and should be edited there rather than hardcoded.
 
 [`exp/drum_diffusion.yaml`](exp/drum_diffusion.yaml) contains the default model configuration. Additional custom model configurations can be added to the [`exp`](exp/) folder.
@@ -104,6 +108,7 @@ To train or finetune models, run one of the following commands in terminal and r
 
 
 **Train model from scratch (on CPU):**
+*(not recommended)*
 
 ```bash
 python train.py exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/data>
@@ -123,4 +128,34 @@ python train.py exp=drum_diffusion trainer.gpus=1 exp=drum_diffusion datamodule.
 
 ```bash
 python train.py exp=drum_diffusion trainer.gpus=1 +ckpt=</path/to/checkpoint.ckpt> exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/data>
+```
+
+## Repository Structure
+The structure of this repository is as follows:
+```
+├── main
+│   ├── diffusion_module.py     - contains pl model, data loading, and logging functionalities for training
+│   └── utils.py                - contains utility functions for training
+├── exp
+│   └── *.yaml                  - Hydra configuration files
+├── setup
+│   ├── environment.yml         - file to set up conda environment
+│   └── requirements.txt        - contains repo dependencies
+├── images                      - directory containing images for README.md
+│   └── *.png
+├── samples                     - directory containing sample outputs from tiny-audio-diffusion models
+│   └── *.wav
+├── .env.tmp                    - temporary environment variables (rename to .env)
+├── .gitignore
+├── README.md
+├── Inference.ipynb             - Jupyter notebook for running inference to generate new samples
+├── config.yaml                 - Hydra base configs
+├── train.py                    - script for training
+├── data                        - directory to host custom training data
+│   └── wav_dataset
+│       └── (*.wav)
+└── saved_models                - directory to host model checkpoints and hyper-parameters for inference
+    └── (kicks/snare/etc.)
+        ├── (*.ckpt)            - pl model checkpoint file
+        └── (config.yaml)       - pl model hydra hyperparameters (required for inference)
 ```
