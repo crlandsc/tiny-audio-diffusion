@@ -31,7 +31,6 @@ Also recommended is [Harmonai's](https://www.harmonai.org/) community project, [
 
 ---
 
-
 ## Setup
 
 Follow these steps to set up an environment for both generating audio samples and training models.
@@ -72,7 +71,6 @@ W&B logging example for this repo [here](https://wandb.ai/crlandsc/unconditional
 
 ---
 
-
 ## Pre-trained Models
 Pretrained models can be found on Hugging Face (each model contains a `.ckpt` and `.yaml` file):
 
@@ -87,34 +85,37 @@ Models can be downloaded to generate samples via the [inference notebook](Infere
 
 ---
 
-
 ## Inference
 #### (Sample Generation)
 Open the [`Inference.ipynb`](Inference.ipynb) in Jupyter Notebook and follow the instructions to generate new drum samples. Ensure that the `"tiny-audio-diffusion (Python 3.10)"` kernel is active in Jupyter to run the notebook.
 
 ---
 
-
 ## Train
-Custom models can be trained or fine-tuned on custom datasets. Datasets should consist of a folder of `.wav` audio files with a 44.1kHz sampling rate.
-
-In the commands below, replace `<path/to/your/train/data>` with the path to your custom training set.
+The model architecture has been constructed with [PyTorch Lightning](https://lightning.ai/docs/pytorch/latest/) and [Hydra](https://hydra.cc/docs/intro/) frameworks. All configurations for the model are contained within `.yaml` files and should be edited there rather than hardcoded.
 
 [`exp/drum_diffusion.yaml`](exp/drum_diffusion.yaml) contains the default model configuration. Additional custom model configurations can be added to the [`exp`](exp/) folder.
 
-To train or finetune models, run the following commands in terminal.
+Custom models can be trained or fine-tuned on custom datasets. Datasets should consist of a folder of `.wav` audio files with a 44.1kHz sampling rate.
 
-**Train model from scratch:**
+To train or finetune models, run one of the following commands in terminal and replace `<path/to/your/train/data>` with the path to your custom training set.
+
+
+**Train model from scratch (on CPU):**
 
 ```bash
 python train.py exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/data>
 ```
 
-**Run on GPU(s):**
+
+**Train model from scratch (on GPU):**
 
 ```bash
 python train.py exp=drum_diffusion trainer.gpus=1 exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/data>
 ```
+
+*NOTE:* To train on GPU, you must have a CUDA-capable GPU and have the CUDA toolkit installed for your specific to your system (ex. Linux, x86_64, WSL-Ubuntu). More information can be found [here](https://developer.nvidia.com/cuda-toolkit).
+
 
 **Resume run from a checkpoint (with GPU):**
 
