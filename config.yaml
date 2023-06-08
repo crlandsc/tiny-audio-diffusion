@@ -1,6 +1,6 @@
 defaults:
   - _self_
-  - exp: null
+  - exp: null # config to load
   - override hydra/hydra_logging: colorlog
   - override hydra/job_logging: colorlog
 
@@ -16,4 +16,4 @@ ckpt_dir: ${logs_dir}/runs/${now:%Y-%m-%d-%H-%M-%S}
 # Hydra experiment configs log dir
 hydra:
   run:
-    dir: ${ckpt_dir}
+    dir: ${ckpt_dir} # save in same dir as ckpts
