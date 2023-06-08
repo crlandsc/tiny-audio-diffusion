@@ -1,3 +1,5 @@
+# @package _global_
+
 # Unconditional Diffusion
 
 # To execute this experiment on a single GPU, run:
@@ -83,7 +85,7 @@ callbacks:
     channels: ${channels} # number of audio channels
     sampling_rate: ${sampling_rate} # audio sampling rate
     length: ${length} # length of generated sample
-    sampling_steps: [50] # number of steps per sample
+    sampling_steps: [1] # number of steps per sample
     use_ema_model: True # Use EMA for logger inference
 
 loggers:
@@ -101,7 +103,6 @@ trainer:
   _target_: pytorch_lightning.Trainer
   gpus: 0 # Set `1` to train on GPU, `0` to train on CPU only, and `-1` to train on all GPUs, default `0`
   precision: 16 # Precision used for tensors (`32` offers higher precision, but `16` is used to save memory)
-  accelerator: auto # default `None`
   min_epochs: 0 # minimum number of epochs
   max_epochs: -1 # max number of epochs (-1 = infinite run)
   enable_model_summary: False
