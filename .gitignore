@@ -7,10 +7,10 @@ __pycache__
 .hydra
 venv/
 logs/
-data/
 .vscode/
 *Zone.Identifier
-saved_models/
+kicks/
+snares/
 
 # Python Template
 # Byte-compiled / optimized / DLL files
