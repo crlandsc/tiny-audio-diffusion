@@ -2,11 +2,11 @@
     <img src="./images/CL Banner.png"/>
 </div>
 
-This is a repository for generating short audio samples and training waveform diffusion models on a GPU with less than 2GB VRAM.
+<p style="margin-top: 20px;">This is a repository for generating short audio samples and training waveform diffusion models on a GPU with less than 2GB VRAM.</p>
 
 ## Motivation
 
-The purpose of this project is to provide access to unconditional audio waveform (1D U-Net) diffusion code for those interested in exploration but have limited resources. There are many methods for audio generation on low-level hardware, but less so specifically for waveform-based diffusion.
+The purpose of this project is to provide access to high-resolution (44.1kHz) unconditional audio waveform (1D U-Net) diffusion code for those interested in exploration but who have limited resources. There are many methods for audio generation on low-level hardware, but less so specifically for waveform-based diffusion.
 
 The repository is built heavily adapting code from Archinet's [audio-diffusion-pytorch](https://github.com/archinetai/audio-diffusion-pytorch) library. A huge thank you to [Flavio Schneider](https://github.com/flavioschneider) for his incredible open-source work in this field!
 
