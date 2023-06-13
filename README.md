@@ -106,7 +106,7 @@ The model architecture has been constructed with [PyTorch Lightning](https://lig
 
 Custom models can be trained or fine-tuned on custom datasets. Datasets should consist of a folder of `.wav` audio files with a 44.1kHz sampling rate.
 
-To train or finetune models, run one of the following commands in terminal and replace `<path/to/your/train/data>` with the path to your custom training set.
+To train or finetune models, run one of the following commands in the terminal from the repo's root folder and replace `<path/to/your/train/data>` with the path to your custom training set.
 
 
 **Train model from scratch (on CPU):**
