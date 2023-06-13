@@ -37,6 +37,8 @@ Also recommended is [Harmonai's](https://www.harmonai.org/) community project, [
 
 Follow these steps to set up an environment for both generating audio samples and training models.
 
+*NOTE:* To use this repo with a GPU, you must have a CUDA-capable GPU and have the CUDA toolkit installed for your specific to your system (ex. Linux, x86_64, WSL-Ubuntu). More information can be found [here](https://developer.nvidia.com/cuda-toolkit).
+
 #### 1. Create a Virtual Environment:
 
 cd into the `setup/` folder and run the following lines from the command line:
