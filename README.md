@@ -39,13 +39,13 @@ Follow these steps to set up an environment for both generating audio samples an
 
 #### 1. Create a Virtual Environment:
 
-Run the following lines from the command line:
+cd into the `setup/` folder and run the following lines from the command line:
 ```bash
 conda env create -f environment.yml
 conda activate tiny-audio-diffusion
 ```
 
-This will create and activate a conda environment and install the dependencies in [`utils/requirements.txt`](utils/requirements.txt).
+This will create and activate a conda environment and install the dependencies in [`setup/requirements.txt`](setup/requirements.txt).
 
 #### 2. Install Python Kernel For Jupyter Notebook
 
