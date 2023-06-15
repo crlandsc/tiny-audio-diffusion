@@ -85,6 +85,7 @@ Pretrained models can be found on Hugging Face (each model contains a `.ckpt` an
 |---|---|
 |Kicks|[crlandsc/tiny-audio-diffusion-kicks](https://huggingface.co/crlandsc/tiny-audio-diffusion-kicks)|
 |Snares|[crlandsc/tiny-audio-diffusion-snares](https://huggingface.co/crlandsc/tiny-audio-diffusion-snares)|
+|Hi-hats|[crlandsc/tiny-audio-diffusion-hihats](https://huggingface.co/crlandsc/tiny-audio-diffusion-hihats)|
 
 *Follow current model training progress [here](https://wandb.ai/crlandsc/unconditional-drum-diffusion?workspace=user-crlandsc) (more models will be added as they are trained).*
 
