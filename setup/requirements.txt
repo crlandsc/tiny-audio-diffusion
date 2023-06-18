@@ -1,5 +1,5 @@
-torch
-torchaudio
+torch>=2.0
+torchaudio>=2.0
 pytorch-lightning==1.7.7
 python-dotenv
 hydra-core
@@ -20,6 +20,7 @@ ema-pytorch
 py7zr
 notebook
 matplotlib
+ipykernel
 
 audio-diffusion-pytorch==0.1.3
 audio-encoders-pytorch
