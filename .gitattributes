@@ -1,7 +1,4 @@
-# Basic .gitattributes for a python repo (https://github.com/alexkaratarakis/gitattributes)
-
-# Language
-* linguist-language=Python
+# Python .gitattributes (source: https://github.com/alexkaratarakis/gitattributes)
 
 # Source files
 # ============
@@ -23,10 +20,11 @@
 *.pyo    binary export-ignore
 *.pyd    binary
 
-# Jupyter notebook
-*.ipynb  text eol=lf
+# Python files
+# ============
+*.py     linguist-language=Python
 
-# Note: .db, .p, and .pkl files are associated
-# with the python modules ``pickle``, ``dbm.*``,
-# ``shelve``, ``marshal``, ``anydbm``, & ``bsddb``
-# (among others).
+# Jupyter Notebook
+# ============
+*.ipynb  linguist-language=Jupyter Notebook
+*.ipynb  text eol=lf
