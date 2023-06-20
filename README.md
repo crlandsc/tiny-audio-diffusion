@@ -39,7 +39,7 @@ Follow these steps to set up an environment for both generating audio samples an
 
 #### 1. Create a Virtual Environment:
 
-cd into the `setup/` folder and run the following lines from the command line:
+Ensure that [Anaconda (or Miniconda)](https://docs.anaconda.com/free/anaconda/install/index.html) is installed and activated. From the command line, `cd` into the [`setup/`](setup/) folder and run the following lines:
 ```bash
 conda env create -f environment.yml
 conda activate tiny-audio-diffusion
@@ -57,7 +57,7 @@ python -m ipykernel install --user --name tiny-audio-diffusion --display-name "t
 
 #### 3. Define Environment Variables
 
-Rename `.env.tmp` to `.env` and replace the entries with your own variables (example values are random)
+Rename [`.env.tmp`](.env.tmp) to `.env` and replace the entries with your own variables (example values are random)
 
 ```bash
 DIR_LOGS=/logs
@@ -69,7 +69,7 @@ WANDB_ENTITY=johnsmith # W&B username
 WANDB_API_KEY=a21dzbqlybbzccqla4txa21dzbqlybbzccqla4tx # W&B API key
 ```
 
-*NOTE:* Sign up for a [Weights & Biases](https://wandb.ai/site) account to log audio samples, spectrograms, and other metrics while training.
+*NOTE:* Sign up for a [Weights & Biases](https://wandb.ai/site) account to log audio samples, spectrograms, and other metrics while training (it's free!).
 
 W&B logging example for this repo [here](https://wandb.ai/crlandsc/unconditional-drum-diffusion?workspace=user-crlandsc).
 
@@ -88,13 +88,14 @@ Pretrained models can be found on Hugging Face (each model contains a `.ckpt` an
 
 *Follow current model training progress [here](https://wandb.ai/crlandsc/unconditional-drum-diffusion?workspace=user-crlandsc) (more models will be added as they are trained).*
 
-Models can be downloaded to generate samples via the [inference notebook](Inference.ipynb). They can also be used as a base model to fine-tune on custom data. It is recommended to create a `saved_models` folder with subfolders to store each model's `.ckpt` and `.yaml` files.
+Pre-trained models can be downloaded to generate samples via the [inference notebook](Inference.ipynb). They can also be used as a base model to fine-tune on custom data. It is recommended to create subfolders within the [`saved_models`](saved_models/) folder to store each model's `.ckpt` and `.yaml` files.
 
 ---
 
 ## Inference
+#### Audio Sample Generation
 
-Open the [`Inference.ipynb`](Inference.ipynb) in Jupyter Notebook and follow the instructions to generate new audio samples. Ensure that the `"tiny-audio-diffusion (Python 3.10)"` kernel is active in Jupyter to run the notebook.
+Open the [`Inference.ipynb`](Inference.ipynb) in Jupyter Notebook and follow the instructions to generate new audio samples. Ensure that the `"tiny-audio-diffusion (Python 3.10)"` kernel is active in Jupyter to run the notebook and you have downloaded the [pre-trained models](#Pre\-trained-Models) from Hugging Face.
 
 ---
 
