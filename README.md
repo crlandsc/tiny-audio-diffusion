@@ -57,7 +57,7 @@ python -m ipykernel install --user --name tiny-audio-diffusion --display-name "t
 
 #### 3. Define Environment Variables
 
-Rename [`.env.tmp`](.env.tmp) to `.env` and replace the entries with your own variables (example values are random)
+Rename [`.env.tmp`](.env.tmp) to `.env` and replace the entries with your own variables (example values are random).
 
 ```bash
 DIR_LOGS=/logs
@@ -95,7 +95,7 @@ Pre-trained models can be downloaded to generate samples via the [inference note
 ## Inference
 #### Audio Sample Generation
 
-Open the [`Inference.ipynb`](Inference.ipynb) in Jupyter Notebook and follow the instructions to generate new audio samples. Ensure that the `"tiny-audio-diffusion (Python 3.10)"` kernel is active in Jupyter to run the notebook and you have downloaded the [pre-trained models](#Pre\-trained-Models) from Hugging Face.
+Open the [`Inference.ipynb`](Inference.ipynb) in Jupyter Notebook and follow the instructions to generate new audio samples. Ensure that the `"tiny-audio-diffusion (Python 3.10)"` kernel is active in Jupyter to run the notebook and you have downloaded the [pre-trained model](#Pre\-trained-Models) of interest from Hugging Face.
 
 ---
 
