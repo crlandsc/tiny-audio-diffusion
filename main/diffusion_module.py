@@ -222,7 +222,7 @@ class SampleLogger(Callback):
     def on_validation_batch_start(
         self, trainer, pl_module, batch, batch_idx, dataloader_idx
     ):
-        if self.log_next:
+        if self.log_next and trainer.logger: # only log if logger present in config
             self.log_sample(trainer, pl_module, batch)
             self.log_next = False
 
@@ -232,7 +232,9 @@ class SampleLogger(Callback):
         if is_train:
             pl_module.eval()
 
+        # Get wandb logger
         wandb_logger = get_wandb_logger(trainer).experiment
+
         model = pl_module.model
 
         if self.use_ema_model:
