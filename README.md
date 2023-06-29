@@ -125,7 +125,7 @@ python train.py exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/d
 **Train model from scratch (on GPU):**
 
 ```bash
-python train.py exp=drum_diffusion trainer.gpus=1 exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/data>
+python train.py exp=drum_diffusion trainer.gpus=1 datamodule.dataset.path=<path/to/your/train/data>
 ```
 
 *NOTE:* To train on GPU, you must have a CUDA-capable GPU and have the CUDA toolkit installed for your specific to your system (ex. Linux, x86_64, WSL-Ubuntu). More information can be found [here](https://developer.nvidia.com/cuda-toolkit).
@@ -134,7 +134,7 @@ python train.py exp=drum_diffusion trainer.gpus=1 exp=drum_diffusion datamodule.
 **Resume run from a checkpoint (with GPU):**
 
 ```bash
-python train.py exp=drum_diffusion trainer.gpus=1 +ckpt=</path/to/checkpoint.ckpt> exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/data>
+python train.py exp=drum_diffusion trainer.gpus=1 +ckpt=</path/to/checkpoint.ckpt> datamodule.dataset.path=<path/to/your/train/data>
 ```
 
 ## Repository Structure
