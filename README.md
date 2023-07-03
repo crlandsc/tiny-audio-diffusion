@@ -4,6 +4,9 @@
 
 <br />
 
+![Static Badge](https://img.shields.io/badge/%F0%9F%A4%97_Hugging_Face_Spaces-blue) ![Static Badge](https://img.shields.io/badge/Repo_Tutorial-red?logo=YouTube) ![Static Badge](https://img.shields.io/badge/Medium-red?logo=Medium&color=black) ![GitHub Repo stars](https://img.shields.io/github/stars/crlandsc/tiny-audio-diffusion?color=gold) ![GitHub forks](https://img.shields.io/github/forks/crlandsc/tiny-audio-diffusion?color=green)
+
+
 This is a repository for generating short audio samples and training waveform diffusion models on a GPU with less than 2GB VRAM.
 
 ## Motivation
@@ -93,8 +96,11 @@ Pre-trained models can be downloaded to generate samples via the [inference note
 ---
 
 ## Inference
-#### Audio Sample Generation
+### Hugging Face Spaces
+Generate samples withot code on [🤗 Hugging Face Spaces](https://huggingface.co/spaces/crlandsc/tiny-audio-diffusion)
 
+### Jupyter Notebook
+#### Audio Sample Generation
 Current Capabilities:
 - Unconditional Generation
 - Conditional "Style-transfer" Generation
