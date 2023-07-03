@@ -1,11 +1,19 @@
 <div align="center">
     <img src="./images/CL Banner.png"/>
 </div>
-
 <br />
 
-![Static Badge](https://img.shields.io/badge/%F0%9F%A4%97_Hugging_Face_Spaces-blue?link=https%3A%2F%2Fhuggingface.co%2Fspaces%2Fcrlandsc%2Ftiny-audio-diffusion) ![Static Badge](https://img.shields.io/badge/Repo_Tutorial-red?logo=YouTube?link=https%3A%2F%2Fyoutu.be%2Fm6Eh2srtTro) ![Static Badge](https://img.shields.io/badge/Medium-red?logo=Medium&color=black?link=https%3A%2F%2Fmedium.com%2Ftowards-data-science%2Ftiny-audio-diffusion-ddc19e90af9b) ![GitHub Repo stars](https://img.shields.io/github/stars/crlandsc/tiny-audio-diffusion?color=gold) ![GitHub forks](https://img.shields.io/github/forks/crlandsc/tiny-audio-diffusion?color=green)
-
+<a href="https://huggingface.co/spaces/crlandsc/tiny-audio-diffusion">
+  <img src="https://img.shields.io/badge/%F0%9F%A4%97_Hugging_Face_Spaces-blue" alt="Hugging Face Spaces Badge">
+</a>
+<a href="https://youtu.be/m6Eh2srtTro">
+  <img src="https://img.shields.io/badge/Repo_Tutorial-red?logo=YouTube" alt="Hugging Face Spaces Badge">
+</a>
+<a href="https://medium.com/towards-data-science/tiny-audio-diffusion-ddc19e90af9b">
+  <img src="https://img.shields.io/badge/Medium-red?logo=Medium&color=black" alt="Hugging Face Spaces Badge">
+</a>
+<img src="https://img.shields.io/github/stars/crlandsc/tiny-audio-diffusion?color=gold" alt="GitHub Repo stars">
+<img src="https://img.shields.io/github/forks/crlandsc/tiny-audio-diffusion?color=green" alt="GitHub forks">
 
 This is a repository for generating short audio samples and training waveform diffusion models on a GPU with less than 2GB VRAM.
 
