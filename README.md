@@ -7,10 +7,10 @@
   <img src="https://img.shields.io/badge/%F0%9F%A4%97_Hugging_Face_Spaces-blue" alt="Hugging Face Spaces Badge">
 </a>
 <a href="https://youtu.be/m6Eh2srtTro">
-  <img src="https://img.shields.io/badge/Repo_Tutorial-red?logo=YouTube" alt="Hugging Face Spaces Badge">
+  <img src="https://img.shields.io/badge/Repo_Tutorial-red?logo=YouTube" alt="YouTube Tutorial Badge">
 </a>
 <a href="https://medium.com/towards-data-science/tiny-audio-diffusion-ddc19e90af9b">
-  <img src="https://img.shields.io/badge/Medium-red?logo=Medium&color=black" alt="Hugging Face Spaces Badge">
+  <img src="https://img.shields.io/badge/Medium-red?logo=Medium&color=black" alt="Medium Article Badge">
 </a>
 <img src="https://img.shields.io/github/stars/crlandsc/tiny-audio-diffusion?color=gold" alt="GitHub Repo stars">
 <img src="https://img.shields.io/github/forks/crlandsc/tiny-audio-diffusion?color=green" alt="GitHub forks">
