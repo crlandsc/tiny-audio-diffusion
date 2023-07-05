@@ -4,7 +4,7 @@
 <br />
 
 <a href="https://huggingface.co/spaces/crlandsc/tiny-audio-diffusion">
-  <img src="https://img.shields.io/badge/%F0%9F%A4%97_Hugging_Face_Spaces-blue" alt="Hugging Face Spaces Badge">
+  <img src="https://img.shields.io/badge/%F0%9F%A4%97_Spaces_Demo-blue" alt="Hugging Face Spaces Badge">
 </a>
 <a href="https://youtu.be/m6Eh2srtTro">
   <img src="https://img.shields.io/badge/Repo_Tutorial-red?logo=YouTube" alt="YouTube Tutorial Badge">
