@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/Repo_Tutorial-red?logo=YouTube" alt="YouTube Tutorial Badge">
 </a>
 <a href="https://medium.com/towards-data-science/tiny-audio-diffusion-ddc19e90af9b">
-  <img src="https://img.shields.io/badge/Medium-red?logo=Medium&color=black" alt="Medium Article Badge">
+  <img src="https://img.shields.io/badge/Towards_Data_Science-red?logo=Medium&color=black" alt="Towards Data Science Badge">
 </a>
 <a href="https://github.com/crlandsc/tiny-audio-diffusion">
     <img src="https://img.shields.io/github/stars/crlandsc/tiny-audio-diffusion?color=gold" alt="GitHub Repo stars">
