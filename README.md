@@ -19,7 +19,7 @@
     <img src="https://img.shields.io/github/forks/crlandsc/tiny-audio-diffusion?color=green" alt="GitHub forks">
 </a>
 
-This is a repository for generating short audio samples and training waveform diffusion models on a GPU with less than 2GB VRAM.
+This is a repository for generating short audio samples and training waveform diffusion models on a consumer-grade GPU with less than 2GB VRAM.
 
 ## Motivation
 
