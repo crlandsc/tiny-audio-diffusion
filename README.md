@@ -1,8 +1,9 @@
 <div align="center">
-    <img src="./images/CL Banner.png"/>
+  <h1 style="font-size: 36px;">Tiny Audio Diffusion</h1>
+  <img src="./images/tiny-audio-diffusion-logo.png" width="250px" alt="Tiny Audio Diffusion Logo" />
 </div>
-<br />
 
+<br>
 <a href="https://huggingface.co/spaces/crlandsc/tiny-audio-diffusion">
   <img src="https://img.shields.io/badge/%F0%9F%A4%97_Spaces_Demo-blue" alt="Hugging Face Spaces Badge">
 </a>
