@@ -1,6 +1,6 @@
 <div align="center">
   <h1 style="font-size: 36px;">Tiny Audio Diffusion</h1>
-  <img src="./images/tiny-audio-diffusion-logo.png" width="250px" alt="Tiny Audio Diffusion Logo" />
+  <img src="./images/tiny-audio-diffusion.png" width="250px" alt="Tiny Audio Diffusion Logo" />
 </div>
 
 <br>
