@@ -45,6 +45,12 @@ Other methods of diffusion, such as diffusion in the latent space ([Stable Diffu
 
 Also recommended is [Harmonai's](https://www.harmonai.org/) community project, [Dance Diffusion](https://github.com/Harmonai-org/sample-generator), which implements similar functionality to this repo on a larger scale with several pre-trained models. [Colab notebook](https://colab.research.google.com/github/Harmonai-org/sample-generator/blob/main/Dance_Diffusion.ipynb) available.
 
+**April 2024 update:**
+Some additional useful generative audio tools/repos:
+- [Stable Audio Tools](https://github.com/Stability-AI/stable-audio-tools)
+- [audiocraft](https://github.com/facebookresearch/audiocraft) (used in [MusicGen](https://audiocraft.metademolab.com/musicgen.html) & [AudioGen](https://audiocraft.metademolab.com/audiogen.html))
+
+
 ---
 
 ## Setup
@@ -102,7 +108,7 @@ Pretrained models can be found on Hugging Face (each model contains a `.ckpt` an
 |Hi-hats|[crlandsc/tiny-audio-diffusion-hihats](https://huggingface.co/crlandsc/tiny-audio-diffusion-hihats)|
 |Percussion (all drum types)|[crlandsc/tiny-audio-diffusion-percussion](https://huggingface.co/crlandsc/tiny-audio-diffusion-percussion)|
 
-*Follow current model training progress [here](https://wandb.ai/crlandsc/unconditional-drum-diffusion?workspace=user-crlandsc) (more models will be added as they are trained).*
+*See W&B model training metrics [here](https://wandb.ai/crlandsc/unconditional-drum-diffusion?workspace=user-crlandsc).*
 
 Pre-trained models can be downloaded to generate samples via the [inference notebook](Inference.ipynb). They can also be used as a base model to fine-tune on custom data. It is recommended to create subfolders within the [`saved_models`](saved_models/) folder to store each model's `.ckpt` and `.yaml` files.
 
@@ -110,7 +116,7 @@ Pre-trained models can be downloaded to generate samples via the [inference note
 
 ## Inference
 ### Hugging Face Spaces
-Generate samples withot code on [🤗 Hugging Face Spaces](https://huggingface.co/spaces/crlandsc/tiny-audio-diffusion)
+Generate samples without code on [🤗 Hugging Face Spaces](https://huggingface.co/spaces/crlandsc/tiny-audio-diffusion)
 
 ### Jupyter Notebook
 #### Audio Sample Generation
@@ -147,7 +153,7 @@ python train.py exp=drum_diffusion datamodule.dataset.path=<path/to/your/train/d
 python train.py exp=drum_diffusion trainer.gpus=1 datamodule.dataset.path=<path/to/your/train/data>
 ```
 
-*NOTE:* To train on GPU, you must have a CUDA-capable GPU and have the CUDA toolkit installed for your specific to your system (ex. Linux, x86_64, WSL-Ubuntu). More information can be found [here](https://developer.nvidia.com/cuda-toolkit).
+*NOTE:* To use this repo with a GPU, you must have a CUDA-capable GPU and have the CUDA toolkit installed specific to your system (ex. Linux, x86_64, WSL-Ubuntu). More information can be found [here](https://developer.nvidia.com/cuda-toolkit).
 
 
 **Resume run from a checkpoint (with GPU):**
@@ -156,7 +162,20 @@ python train.py exp=drum_diffusion trainer.gpus=1 datamodule.dataset.path=<path/
 python train.py exp=drum_diffusion trainer.gpus=1 +ckpt=</path/to/checkpoint.ckpt> datamodule.dataset.path=<path/to/your/train/data>
 ```
 
+---
+
+## Dataset
+
+The data used to train the checkpoints listed above can be found on [🤗 Hugging Face](https://huggingface.co/datasets/crlandsc/tiny-audio-diffusion-drums).
+
+***Note:*** *This is a small and unbalanced dataset consisting of free samples that I had from my music production. These samples are not covered under the MIT license of this repository and cannot be used to train any commercial models, but can be used in personal and research contexts.*
+
+***Note:*** *For appropriately diverse models, larger datasets should be used to avoid memorization of training data.*
+
+---
+
 ## Repository Structure
+
 The structure of this repository is as follows:
 ```
 ├── main
