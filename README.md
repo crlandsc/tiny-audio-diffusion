@@ -46,10 +46,11 @@ Other methods of diffusion, such as diffusion in the latent space ([Stable Diffu
 Also recommended is [Harmonai's](https://www.harmonai.org/) community project, [Dance Diffusion](https://github.com/Harmonai-org/sample-generator), which implements similar functionality to this repo on a larger scale with several pre-trained models. [Colab notebook](https://colab.research.google.com/github/Harmonai-org/sample-generator/blob/main/Dance_Diffusion.ipynb) available.
 
 **April 2024 update:**
-Some additional useful generative audio tools/repos:
-- [Stable Audio Tools](https://github.com/Stability-AI/stable-audio-tools)
-- [audiocraft](https://github.com/facebookresearch/audiocraft) (used in [MusicGen](https://audiocraft.metademolab.com/musicgen.html) & [AudioGen](https://audiocraft.metademolab.com/audiogen.html))
 
+Some additional useful generative audio tools/repos:
+- [Stable Audio Tools](https://github.com/Stability-AI/stable-audio-tools) (used in [Stable Audio](https://www.stableaudio.com/)) - Useful audio tools for building and training models.
+- [audiocraft](https://github.com/facebookresearch/audiocraft) (used in [MusicGen](https://audiocraft.metademolab.com/musicgen.html) & [AudioGen](https://audiocraft.metademolab.com/audiogen.html)) - Useful audio tools for building and training models.
+- [audiomentations](https://github.com/iver56/audiomentations) - Good library for implementing audio augmentations on CPU for training. See [torch-audiomentations](https://github.com/asteroid-team/torch-audiomentations) for GPU implementation.
 
 ---
 
@@ -116,7 +117,7 @@ Pre-trained models can be downloaded to generate samples via the [inference note
 
 ## Inference
 ### Hugging Face Spaces
-Generate samples without code on [🤗 Hugging Face Spaces](https://huggingface.co/spaces/crlandsc/tiny-audio-diffusion)
+Generate samples without code on [🤗 Hugging Face Spaces](https://huggingface.co/spaces/crlandsc/tiny-audio-diffusion)!
 
 ### Jupyter Notebook
 #### Audio Sample Generation
