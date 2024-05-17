@@ -2,23 +2,9 @@
   <h1 style="font-size: 36px;">Tiny Audio Diffusion</h1>
   <img src="./images/tiny-audio-diffusion.png" width="250px" alt="Tiny Audio Diffusion Logo" />
 </div>
-
 <br>
-<a href="https://huggingface.co/spaces/crlandsc/tiny-audio-diffusion">
-  <img src="https://img.shields.io/badge/%F0%9F%A4%97_Spaces_Demo-blue" alt="Hugging Face Spaces Badge">
-</a>
-<a href="https://youtu.be/m6Eh2srtTro">
-  <img src="https://img.shields.io/badge/Repo_Tutorial-red?logo=YouTube" alt="YouTube Tutorial Badge">
-</a>
-<a href="https://medium.com/towards-data-science/tiny-audio-diffusion-ddc19e90af9b">
-  <img src="https://img.shields.io/badge/Towards_Data_Science-red?logo=Medium&color=black" alt="Towards Data Science Badge">
-</a>
-<a href="https://github.com/crlandsc/tiny-audio-diffusion/stargazers">
-    <img src="https://img.shields.io/github/stars/crlandsc/tiny-audio-diffusion?color=gold" alt="GitHub Repo stars">
-</a>
-<a href="https://github.com/crlandsc/tiny-audio-diffusion/forks">
-    <img src="https://img.shields.io/github/forks/crlandsc/tiny-audio-diffusion?color=green" alt="GitHub forks">
-</a>
+
+[![Hugging Face Spaces Badge](https://img.shields.io/badge/%F0%9F%A4%97_Spaces_Demo-blue)](https://huggingface.co/spaces/crlandsc/tiny-audio-diffusion) [![YouTube Tutorial Badge](https://img.shields.io/badge/Repo_Tutorial-red?logo=YouTube)](https://youtu.be/m6Eh2srtTro) [![Towards Data Science Badge](https://img.shields.io/badge/Towards_Data_Science-red?logo=Medium&color=black)](https://medium.com/towards-data-science/tiny-audio-diffusion-ddc19e90af9b) [![GitHub Repo stars](https://img.shields.io/github/stars/crlandsc/tiny-audio-diffusion?color=gold)](https://github.com/crlandsc/tiny-audio-diffusion/stargazers) [![GitHub forks](https://img.shields.io/github/forks/crlandsc/tiny-audio-diffusion?color=green)](https://github.com/crlandsc/tiny-audio-diffusion/forks)
 
 This is a repository for generating short audio samples and training waveform diffusion models on a consumer-grade GPU with less than 2GB VRAM.
 
@@ -26,7 +12,7 @@ This is a repository for generating short audio samples and training waveform di
 
 The purpose of this project is to provide access to stereo high-resolution (44.1kHz) conditional and unconditional audio waveform (1D U-Net) diffusion code for those interested in exploration but who have limited resources. There are many methods for audio generation on low-level hardware, but less so specifically for waveform-based diffusion.
 
-The repository is built heavily adapting code from Archinet's [audio-diffusion-pytorch](https://github.com/archinetai/audio-diffusion-pytorch) library. A huge thank you to [Flavio Schneider](https://github.com/flavioschneider) for his incredible open-source work in this field!
+The repository is built heavily adapting code from Archinet's [audio-diffusion-pytorch](https://github.com/archinetai/audio-diffusion-pytorch) liary. A huge thank you to [Flavio Schneider](https://github.com/flavioschneider) for his incredible open-source work in this field!
 
 
 ## Background
